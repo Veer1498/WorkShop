@@ -25,37 +25,7 @@ public class TicTacToe {
 	public static Scanner sc = new Scanner(System.in);
 	public static char computerTurn;
 	public static char userTurn;
-	
-	
-	//Welcome Function
-	public static void welcome() {
-		System.out.println("Welcome to Tic Tac Toe Game");
-		System.out.println("***************************");
-		System.out.println("");
-	}
-		
-	//createBoard Function
-	public static void createBoard() {
-		for (int i=1;i<gameBoard.length;i++) {
-			gameBoard[i] = ' ';
-		}
-		
-	}
-	
-	//User function
-	public static char user() {
-		System.out.println("Enter Your Choice X or O");
-		char letter = sc.next().charAt(0);
-		return letter;		
-			}
-	//showBoard Function
-	public static void showBoard() {
-		System.out.println(gameBoard[1]+"|"+gameBoard[2]+"|"+gameBoard[3]+"|");
-		System.out.println("-------");
-		System.out.println(gameBoard[4]+"|"+gameBoard[5]+"|"+gameBoard[6]+"|");
-		System.out.println("-------");
-		System.out.println(gameBoard[7]+"|"+gameBoard[8]+"|"+gameBoard[9]+"|");
-	}
+	public static int position;
 	
 	
 	//Main Function
@@ -65,8 +35,96 @@ public class TicTacToe {
 		welcome();
 		createBoard();
 		user();
+		moveLocation();
 		showBoard();
 		
 	}
+	
+	//Welcome Function
+		public static void welcome() {
+			System.out.println("Welcome to Tic Tac Toe Game");
+			System.out.println("***************************");
+			System.out.println("");
+		}
+			
+		//createBoard Function
+		public static void createBoard() {
+			for (int i=1;i<gameBoard.length;i++) {
+				gameBoard[i] = ' ';
+			}
+			
+		}
+		
+		//User function
+		public static char user() {
+			System.out.println("Enter Your Choice X or O");
+			char letter = sc.next().charAt(0);
+			return letter;		
+				}
+		//showBoard Function
+		public static void showBoard() {
+			System.out.println(gameBoard[1]+" |"+gameBoard[2]+" |"+gameBoard[3]);
+			System.out.println("---------");
+			System.out.println(gameBoard[4]+" |"+gameBoard[5]+" |"+gameBoard[6]);
+			System.out.println("---------");
+			System.out.println(gameBoard[7]+" |"+gameBoard[8]+" |"+gameBoard[9]);
+		}
+		
+		//moveLocation Function
+		public static void moveLocation() {
+			System.out.println("Enter the Position (1-9) to Enter Your Letter");
+			position = sc.nextInt();
+			switch (position) {
+			case 1 :
+			if(gameBoard[1]==' '){
+				gameBoard[1]= userTurn;
+			}
+			break;
+			case 2 :
+				if(gameBoard[2]==' '){
+					gameBoard[2]= userTurn;
+				}
+				break;
+			case 3 :
+				if(gameBoard[3]==' '){
+					gameBoard[3]= userTurn;
+				}
+				break;
+			case 4 :
+				if(gameBoard[4]==' '){
+					gameBoard[4]= userTurn;
+				}
+				break;
+			case 5 :
+				if(gameBoard[5]==' '){
+					gameBoard[5]= userTurn;
+				}
+				break;
+			case 6 :
+				if(gameBoard[6]==' '){
+					gameBoard[6]= userTurn;
+				}
+				break;
+			case 7 :
+				if(gameBoard[7]==' '){
+					gameBoard[7]= userTurn;
+				}
+				break;
+			case 8 :
+				if(gameBoard[8]==' '){
+					gameBoard[8]= userTurn;
+				}
+				break;
+			case 9 :
+				if(gameBoard[9]==' '){
+					gameBoard[9]= userTurn;
+				}
+				break;
+			default :
+				System.out.println("Please Enter Correct Option");
+				System.out.println("===========================");
+
+			}
+		}
 
 }
