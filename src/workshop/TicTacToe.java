@@ -27,8 +27,6 @@ public class TicTacToe {
 	public static char userTurn;
 	
 	
-	
-	
 	//Welcome Function
 	public static void welcome() {
 		System.out.println("Welcome to Tic Tac Toe Game");
@@ -50,17 +48,16 @@ public class TicTacToe {
 		char letter = sc.next().charAt(0);
 		return letter;		
 			}
-//	//showBoard Function
-//	public static void showBoard() {
-//		System.out.println(gameBoard[1]+"|"+gameBoard[2]+"|"+gameBoard[3]+"|");
-//		System.out.println("-------");
-//		System.out.println(gameBoard[4]+"|"+gameBoard[5]+"|"+gameBoard[6]+"|");
-//		System.out.println("-------");
-//		System.out.println(gameBoard[7]+"|"+gameBoard[8]+"|"+gameBoard[9]+"|");
-//	}
+	//showBoard Function
+	public static void showBoard() {
+		System.out.println(gameBoard[1]+"|"+gameBoard[2]+"|"+gameBoard[3]+"|");
+		System.out.println("-------");
+		System.out.println(gameBoard[4]+"|"+gameBoard[5]+"|"+gameBoard[6]+"|");
+		System.out.println("-------");
+		System.out.println(gameBoard[7]+"|"+gameBoard[8]+"|"+gameBoard[9]+"|");
+	}
 	
 	
-		
 	//Main Function
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -68,7 +65,7 @@ public class TicTacToe {
 		welcome();
 		createBoard();
 		user();
-	//	showBoard();
+		showBoard();
 		
 	}
 
