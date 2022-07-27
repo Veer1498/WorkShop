@@ -26,6 +26,8 @@ public class TicTacToe {
 	public static char computerTurn;
 	public static char userTurn;
 	public static int position;
+	public static int computerPosition;
+;
 	
 	
 	//Main Function
@@ -36,6 +38,7 @@ public class TicTacToe {
 		createBoard();
 		user();
 		moveLocation();
+		computerMove();
 		showBoard();
 		
 	}
@@ -63,11 +66,11 @@ public class TicTacToe {
 				}
 		//showBoard Function
 		public static void showBoard() {
-			System.out.println(gameBoard[1]+" |"+gameBoard[2]+" |"+gameBoard[3]);
-			System.out.println("---------");
-			System.out.println(gameBoard[4]+" |"+gameBoard[5]+" |"+gameBoard[6]);
-			System.out.println("---------");
-			System.out.println(gameBoard[7]+" |"+gameBoard[8]+" |"+gameBoard[9]);
+			System.out.println(gameBoard[1]+" | "+gameBoard[2]+" | "+gameBoard[3]);
+			System.out.println("----------");
+			System.out.println(gameBoard[4]+" | "+gameBoard[5]+" | "+gameBoard[6]);
+			System.out.println("----------");
+			System.out.println(gameBoard[7]+" | "+gameBoard[8]+" | "+gameBoard[9]);
 		}
 		
 		//moveLocation Function
@@ -123,8 +126,74 @@ public class TicTacToe {
 			default :
 				System.out.println("Please Enter Correct Option");
 				System.out.println("===========================");
-
 			}
+		}
+		//Computer Move Function
+		public static void computerMove() {
+			boolean flag = false;
+			while(true) {
+				computerPosition = (int) (Math.floor(Math.random()*8));
+				switch(computerPosition) {
+				case 0:
+					if(gameBoard[1]==' ') {
+						gameBoard[1]= computerTurn;
+						flag = true;
+					}
+					break;
+				case 1:
+					if(gameBoard[2]==' ') {
+						gameBoard[2]= computerTurn;
+						flag = true;
+					}
+					break;
+				case 2:
+					if(gameBoard[3]==' ') {
+						gameBoard[3]= computerTurn;
+						flag = true;
+					}
+					break;
+				case 3:
+					if(gameBoard[4]==' ') {
+						gameBoard[4]= computerTurn;
+						flag = true;
+					}
+					break;
+				case 4:
+					if(gameBoard[5]==' ') {
+						gameBoard[5]= computerTurn;
+						flag = true;
+					}
+					break;
+				case 5:
+					if(gameBoard[6]==' ') {
+						gameBoard[6]= computerTurn;
+						flag = true;
+					}
+					break;
+				case 6:
+					if(gameBoard[7]==' ') {
+						gameBoard[7]= computerTurn;
+						flag = true;
+					}
+					break;
+				case 7:
+					if(gameBoard[8]==' ') {
+						gameBoard[8]= computerTurn;
+						flag = true;
+					}
+					break;
+				case 8:
+					if(gameBoard[9]==' ') {
+						gameBoard[9]= computerTurn;
+						flag = true;
+					}
+					break;
+				}
+				if (flag) {
+					break;
+				}
+			}
+			
 		}
 
 }
