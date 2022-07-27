@@ -1,4 +1,7 @@
 package workshop;
+
+import java.util.Scanner;
+
 /**
  * Create a TicTacToe Game Simulation.
  * @author Veer.Singa
@@ -18,7 +21,13 @@ public class TicTacToe {
 	
 	//UC1- Creating an Empty Board
 	
-	static char[] gameBoard = new char[10];
+	public static char[] gameBoard = new char[10];
+	public static Scanner sc = new Scanner(System.in);
+	public static char computerTurn;
+	public static char userTurn;
+	
+	
+	
 	
 	//Welcome Function
 	public static void welcome() {
@@ -28,13 +37,20 @@ public class TicTacToe {
 	}
 		
 	//createBoard Function
-	public static char[] createBoard() {
+	public static void createBoard() {
 		for (int i=1;i<gameBoard.length;i++) {
 			gameBoard[i] = ' ';
 		}
-		return gameBoard;
+		
 	}
-	//showBoard Function
+	
+	//User function
+	public static char user() {
+		System.out.println("Enter Your Choice X or O");
+		char letter = sc.next().charAt(0);
+		return letter;		
+			}
+//	//showBoard Function
 //	public static void showBoard() {
 //		System.out.println(gameBoard[1]+"|"+gameBoard[2]+"|"+gameBoard[3]+"|");
 //		System.out.println("-------");
@@ -43,12 +59,15 @@ public class TicTacToe {
 //		System.out.println(gameBoard[7]+"|"+gameBoard[8]+"|"+gameBoard[9]+"|");
 //	}
 	
+	
+		
 	//Main Function
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		//Calling Required Methods
 		welcome();
-		char [] game =createBoard();
+		createBoard();
+		user();
 	//	showBoard();
 		
 	}
