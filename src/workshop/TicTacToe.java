@@ -35,6 +35,7 @@ public class TicTacToe {
 		// TODO Auto-generated method stub
 		//Calling Required Methods
 		welcome();
+		toss();
 		createBoard();
 		user();
 		moveLocation();
@@ -194,6 +195,17 @@ public class TicTacToe {
 				}
 			}
 			
+		}
+		public static void toss() {
+			System.out.println("Toss to check Who plays First");
+			int check = (int) (Math.floor(Math.random()*1));
+			System.out.println("\n1.Tails \n2.Heads");
+			int toss = sc.nextInt();
+			if(toss == check) {
+				System.out.println("I won Toss");
+			}
+			else
+				System.out.println("Computer Won Toss");
 		}
 
 }
