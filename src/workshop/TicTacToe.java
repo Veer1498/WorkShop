@@ -1,5 +1,4 @@
 package workshop;
-
 import java.util.Scanner;
 
 /**
@@ -27,6 +26,7 @@ public class TicTacToe {
 	public static char userTurn;
 	public static int position;
 	public static int computerPosition;
+	public static char exitCode;
 ;
 	
 	
@@ -35,13 +35,51 @@ public class TicTacToe {
 		// TODO Auto-generated method stub
 		//Calling Required Methods
 		welcome();
-		toss();
 		createBoard();
-		user();
-		moveLocation();
-		computerMove();
+		userTurn = user();
+		computerTurn = (userTurn == 'X')?'0':'X';
 		showBoard();
-		
+		System.out.println("Toss to check Who plays First");
+		int check = (int) (Math.floor(Math.random()*(2-1+1)+1));
+		System.out.println("\n1.Tails \n2.Heads\n");
+		int toss = sc.nextInt();
+		if(toss == check) {
+			System.out.println("\nYou won Toss\n");
+			while(true) {
+				moveLocation();
+				System.out.println("\nYour Move\n");
+				showBoard();
+				winner(userTurn);
+				if (exitCode == '1'){
+						break;
+				}
+				computerMove();
+				System.out.println("\nComputer Move\n");
+				showBoard();
+				winner(computerTurn);
+				if (exitCode == '1'){
+					break;
+				}
+			}
+		}
+		else
+			System.out.println("\nComputer Won Toss\n");
+		while(true) {
+			computerMove();
+			System.out.println("\nComputer Move\n");
+			showBoard();
+			winner(computerTurn);
+			if (exitCode == '1'){
+				break;
+			}
+			moveLocation();
+			System.out.println("\nYour Move\n");
+			showBoard();
+			winner(userTurn);
+			if (exitCode == '1'){
+					break;
+			}	
+		}	
 	}
 	
 	//Welcome Function
@@ -67,16 +105,19 @@ public class TicTacToe {
 				}
 		//showBoard Function
 		public static void showBoard() {
-			System.out.println(gameBoard[1]+" | "+gameBoard[2]+" | "+gameBoard[3]);
-			System.out.println("----------");
-			System.out.println(gameBoard[4]+" | "+gameBoard[5]+" | "+gameBoard[6]);
-			System.out.println("----------");
-			System.out.println(gameBoard[7]+" | "+gameBoard[8]+" | "+gameBoard[9]);
+			System.out.println("-------------");
+			System.out.println("| "+gameBoard[1]+" | "+gameBoard[2]+" | "+gameBoard[3]+" |");
+			System.out.println("-------------");
+			System.out.println("| "+gameBoard[4]+" | "+gameBoard[5]+" | "+gameBoard[6]+" |");
+			System.out.println("-------------");
+			System.out.println("| "+gameBoard[7]+" | "+gameBoard[8]+" | "+gameBoard[9]+" |");
+			System.out.println("-------------");
+			System.out.println("");
 		}
 		
 		//moveLocation Function
 		public static void moveLocation() {
-			System.out.println("Enter the Position (1-9) to Enter Your Letter");
+			System.out.println("Enter the Position (1-9)");
 			position = sc.nextInt();
 			switch (position) {
 			case 1 :
@@ -196,16 +237,75 @@ public class TicTacToe {
 			}
 			
 		}
-		public static void toss() {
-			System.out.println("Toss to check Who plays First");
-			int check = (int) (Math.floor(Math.random()*1));
-			System.out.println("\n1.Tails \n2.Heads");
-			int toss = sc.nextInt();
-			if(toss == check) {
-				System.out.println("I won Toss");
-			}
-			else
-				System.out.println("Computer Won Toss");
-		}
+		
+		//Winner Function
+		  public static void winner ( char symbol){
+			  
+				if (gameBoard[1] != ' ' && gameBoard[1] == gameBoard[2] && gameBoard[2] == gameBoard[3]) {
+	                if (gameBoard[1] == symbol) {
+	                    System.out.println("Player WINS THE GAME");
+	                } else {
+	                    System.out.println("Computer WINS THE GAME");
+	                }
+	                exitCode = '1';
+				}
+				else if (gameBoard[4] != ' ' && gameBoard[4] == gameBoard[5] && gameBoard[5] == gameBoard[6]) {
+	                if (gameBoard[4] == symbol) {
+	                    System.out.println("Player WINS THE GAME");
+	                } else {
+	                    System.out.println("Computer WINS THE GAME");
+	                }
+	                exitCode = '1';
+				}
+				else if (gameBoard[7] != ' ' && gameBoard[7] == gameBoard[8] && gameBoard[8] == gameBoard[9]) {
+	                if (gameBoard[7] == symbol) {
+	                    System.out.println("Player WINS THE GAME");
+	                } else {
+	                    System.out.println("Computer WINS THE GAME");
+	                }
+	                exitCode = '1';
+				}
+				else if (gameBoard[1] != ' ' && gameBoard[1] == gameBoard[4] && gameBoard[4] == gameBoard[7]) {
+	                if (gameBoard[1] == symbol) {
+	                    System.out.println("Player WINS THE GAME");
+	                } 
+	                else {
+	                    System.out.println("Computer WINS THE GAME");
+	                }
+	                exitCode = '1';
+				}
+				else if (gameBoard[2] != ' ' && gameBoard[2] == gameBoard[5] && gameBoard[5] == gameBoard[8]) {
+	                if (gameBoard[2] == symbol) {
+	                    System.out.println("Player WINS THE GAME");
+	                } else {
+	                    System.out.println("Computer WINS THE GAME");
+	                }
+	                exitCode = '1';
+				}
+				else if (gameBoard[3] != ' ' && gameBoard[3] == gameBoard[6] && gameBoard[6] == gameBoard[9]) {
+	                if (gameBoard[3] == symbol) {
+	                    System.out.println("Player WINS THE GAME");
+	                } else {
+	                    System.out.println("Computer WINS THE GAME");
+	                }
+	                exitCode = '1';
+				}
+				else if (gameBoard[1] != ' ' && gameBoard[1] == gameBoard[5] && gameBoard[5] == gameBoard[9]) {
+	                if (gameBoard[1] == symbol) {
+	                    System.out.println("Player WINS THE GAME");
+	                } else {
+	                    System.out.println("Computer WINS THE GAME");
+	                }
+	                exitCode = '1';
+				}
+				else if (gameBoard[3] != ' ' && gameBoard[3] == gameBoard[5] && gameBoard[5] == gameBoard[7]) {
+	                if (gameBoard[3] == symbol) {
+	                    System.out.println("Player WINS THE GAME");
+	                } else {
+	                    System.out.println("Computer WINS THE GAME");
+	                }
+	                exitCode = '1';
+				}
+		  }
 
 }
